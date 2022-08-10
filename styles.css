@@ -1,0 +1,63 @@
+.corpo{
+    margin: 0;
+    height: 100vh;
+    width: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(#00FF00, #006400);
+    background-repeat: no-repeat;
+}
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80%;
+    max-height: 100vh;
+    width: 50%;
+    border-radius: 30px;
+    border-width: medium;
+    border-style: solid;
+    border-color: black;
+}
+.atividade{
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    
+}
+.data{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 8px;
+}
+#texto{
+    border-radius: 10px;
+    border: black, 10px;
+    background-color: #32CD32;
+    padding: 8px;
+}
+#datahora{
+    border-radius: 10px;
+    border: black, 10px;
+    background-color: #32CD32;
+    padding: 8px;
+    
+}
+.botao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#btn{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #32CD32;
+    font-weight: bold;
+}
+#btn:hover{
+    cursor: pointer;
+}
+
