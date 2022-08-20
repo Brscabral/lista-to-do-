@@ -12,13 +12,19 @@ function inicia(){
  }
  window.addEventListener('load', inicia())
 
+ function gerarId(){
+    return Math.floor(Math.random() * 3000);
+}
 
 function pegaInfo(){
     let valorTexto = texto.value;
     let valorData = data.value;
+    let id;
     let objetoTexto = {}
+    objetoTexto.id= gerarId();
     objetoTexto.evento = valorTexto;
     objetoTexto.data=valorData;
+    
     return objetoTexto;
 }
 
@@ -30,34 +36,69 @@ function adicionaArray(){
     return lista;
 }
 
-
-
-btn.addEventListener('click', ()=>{
-    let li = document.createElement('li');
-    ul.appendChild(li);
-
-    
+function mostraElementos(){
     let listaTeste = adicionaArray();
+    let objeto = pegaInfo();
     let trocaElemento;
+    let li = document.createElement('li');
 
+    ul.appendChild(li);
+    
     let sorted = listaTeste.sort((a,b)=>{
         return a.data.localeCompare(b.data);
      });
     
-
-        for(let i = 0; i< lista.length; i++){
+     
+        for(let i = 0; i<= listaTeste.length; i++){
+           
+            let btnRemove = document.createElement('a');
+            let x = document.createTextNode('X');
+            btnRemove.setAttribute('href', '#');
+            btnRemove.appendChild(x);
             
-             li = ul.children[i];
-             li.innerHTML= lista[i].evento + " - " + lista[i].data + " ";
-             
+            li = ul.children[i];
+            li.setAttribute("id", `${listaTeste[i].id}`)
+            li.innerHTML=" "+ listaTeste[i].id + " " + listaTeste[i].evento + " - " + "No dia: " + listaTeste[i].data + " " ;
              trocaElemento = li;
-             console.log(trocaElemento);
+             let indice = listaTeste[i].id;
             if(sorted){
                 ul.replaceChild(trocaElemento, li);
-            } 
+                
+            }
+            btnRemove.setAttribute('onclick', 'removeElemento('+ indice +')')
+            console.log(indice)
+            li.appendChild(btnRemove);
         }
-        
+       
+
+}
+
+
+
+function removeElemento(indice){
+    console.log(indice)
+    let confirm = window.confirm("Tem certeza que deseja remover essa atividade?");
     
-    console.log(trocaElemento);
+    if(confirm){
+
+        let li= document.getElementById('' + indice + '')
+       
+            if(li){
+                
+                ul.removeChild(li);
+            }
+
+            console.log(li)
+         }
+     
+    
+}
+
+
+btn.addEventListener('click', ()=>{
+
+    mostraElementos();
+    
+    
     
 })
