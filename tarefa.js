@@ -58,7 +58,7 @@ function mostraElementos(){
             
             li = ul.children[i];
             li.setAttribute("id", `${listaTeste[i].id}`)
-            li.innerHTML=" "+ listaTeste[i].id + " " + listaTeste[i].evento + " - " + "No dia: " + listaTeste[i].data + " " ;
+            li.innerHTML=" " + listaTeste[i].evento + " - " + "No dia: " + listaTeste[i].data + " " ;
              trocaElemento = li;
              let indice = listaTeste[i].id;
             if(sorted){
